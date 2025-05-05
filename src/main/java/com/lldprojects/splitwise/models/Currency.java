@@ -9,5 +9,6 @@ import lombok.Setter;
 @Setter
 public class Currency {
     private String symbol;
+
     private String name;
 }

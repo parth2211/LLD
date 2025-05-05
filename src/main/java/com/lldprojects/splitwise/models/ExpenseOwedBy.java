@@ -11,7 +11,9 @@ import lombok.Setter;
 public class ExpenseOwedBy extends ModelID {
     @ManyToOne
     private Expense expense;
+
     @ManyToOne
     private User user;
+
     private double amountOwed;
 }

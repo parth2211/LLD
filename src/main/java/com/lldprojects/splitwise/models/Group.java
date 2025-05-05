@@ -13,12 +13,17 @@ import java.util.List;
 public class Group extends ModelID{
     @ManyToOne
     private User createdBy;
+
     private String name;
+
     private String description;
+
     @ManyToMany
     private List<User> groupParticipants;
+
     @OneToMany
     private List<Expense> groupExpenses;
+
     @ManyToMany
     private List<User> admins;
 }
