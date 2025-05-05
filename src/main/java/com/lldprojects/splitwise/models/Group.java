@@ -1,6 +1,6 @@
 package com.lldprojects.splitwise.models;
 
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,11 +9,16 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
+@Table(name="groups")
 public class Group extends ModelID{
-    User createdBy;
-    String name;
-    String description;
-    List<User> groupParticipants;
-    List<Expense> groupExpenses;
-    List<User> admins;
+    @ManyToOne
+    private User createdBy;
+    private String name;
+    private String description;
+    @ManyToMany
+    private List<User> groupParticipants;
+    @OneToMany
+    private List<Expense> groupExpenses;
+    @ManyToMany
+    private List<User> admins;
 }

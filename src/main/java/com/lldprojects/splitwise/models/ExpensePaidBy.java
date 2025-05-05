@@ -1,6 +1,8 @@
 package com.lldprojects.splitwise.models;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,7 +10,9 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ExpensePaidBy extends ModelID{
-    String expenseID;
-    User user;
-    Double amountPaid;
+    @ManyToOne
+    private Expense expense;
+    @ManyToOne
+    private User user;
+    private double amountPaid;
 }

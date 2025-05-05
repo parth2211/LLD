@@ -8,6 +8,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Currency {
-    String symbol;
-    String name;
+    private String symbol;
+    private String name;
 }
