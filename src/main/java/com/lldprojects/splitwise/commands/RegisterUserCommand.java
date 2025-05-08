@@ -7,8 +7,6 @@ import com.lldprojects.splitwise.controllers.UserController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.sql.SQLOutput;
-
 @Service
 public class RegisterUserCommand implements Command{
 
@@ -37,7 +35,7 @@ public class RegisterUserCommand implements Command{
         registerUserRequestDto.setPhoneNumber(phoneNumber);
         registerUserRequestDto.setPassword(password);
 
-        RegisterUserResponseDto response = userController.registerUserController(registerUserRequestDto);
+        RegisterUserResponseDto response = userController.registerUser(registerUserRequestDto);
         System.out.println("Registered User " + response.getUser());
     }
 }

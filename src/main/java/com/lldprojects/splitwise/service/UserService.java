@@ -5,6 +5,8 @@ import com.lldprojects.splitwise.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class UserService {
 
@@ -18,5 +20,15 @@ public class UserService {
         user.setPassword(password);
 
         return userRepository.save(user);
+    }
+
+    public User updateUserService(Long id, String newPassword) {
+        Optional<User> optionalUser = userRepository.findById(id);
+        if(optionalUser.isPresent()) {
+            User user = optionalUser.get();
+            user.setPassword(newPassword);
+            return userRepository.save(user);
+        }
+        return null;
     }
 }

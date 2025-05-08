@@ -8,4 +8,11 @@ import lombok.Setter;
 @Setter
 public class RegisterUserResponseDto {
     private User user;
+
+    @Override
+    public String toString() {
+        return "RegisterUserResponseDto{" +
+                "user=" + user +
+                '}';
+    }
 }

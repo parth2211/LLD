@@ -33,7 +33,10 @@ public class SplitwiseApplication implements CommandLineRunner {
 
         while(true) {
             Scanner sc = new Scanner(System.in);
-            //commandRegistry.execCommand(command);
+            System.out.println("Enter your new input");
+            String command = sc.nextLine();
+
+            commandRegistry.execCommand(command);
         }
     }
 }
