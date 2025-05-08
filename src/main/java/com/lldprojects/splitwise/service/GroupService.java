@@ -7,6 +7,7 @@ import com.lldprojects.splitwise.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -26,6 +27,12 @@ public class GroupService {
             Group group = new Group();
             group.setName(groupName);
             group.setCreatedBy(user);
+            List<User> participants = group.getGroupParticipants();
+            participants.add(user);
+            group.setGroupParticipants(participants);
+            List<User> admins = group.getAdmins();
+            admins.add(user);
+            group.setAdmins(admins);
 
             return groupRepository.save(group);
         }
