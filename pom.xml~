@@ -11,7 +11,7 @@
 	<groupId>com.lldprojects</groupId>
 	<artifactId>splitwise</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>splitwise</name>
+	<name>splitwise</name>ś
 	<description>LLD for SplitWise</description>
 	<url/>
 	<licenses>
@@ -44,17 +44,9 @@
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<version>1.18.36</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<optional>true</optional>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
