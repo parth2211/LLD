@@ -34,5 +34,6 @@ public class UpdateUserCommand implements Command{
         request.setNewPassword(newPassword);
 
         UpdateUserResponseDto response = userController.updateUser(request);
+        System.out.println("Updated User " + response.getUser().toString());
     }
 }

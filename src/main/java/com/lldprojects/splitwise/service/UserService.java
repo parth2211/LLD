@@ -29,6 +29,7 @@ public class UserService {
             user.setPassword(newPassword);
             return userRepository.save(user);
         }
+        System.out.println("User with id " + id + "is not present!");
         return null;
     }
 }

@@ -8,4 +8,11 @@ import lombok.Setter;
 @Setter
 public class UpdateUserResponseDto {
     User user;
+
+    @Override
+    public String toString() {
+        return "UpdateUserResponseDto{" +
+                "user=" + user +
+                '}';
+    }
 }
