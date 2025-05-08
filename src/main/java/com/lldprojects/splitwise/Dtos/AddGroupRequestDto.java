@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class UpdateUserRequestDto {
-    private Long id;
-    private String newPassword;
+public class AddGroupRequestDto {
+    private Long createdById;
+    private String groupName;
 }

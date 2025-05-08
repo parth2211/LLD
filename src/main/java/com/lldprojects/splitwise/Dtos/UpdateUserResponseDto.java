@@ -7,7 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class UpdateUserResponseDto {
-    User user;
+    private User user;
 
     @Override
     public String toString() {
