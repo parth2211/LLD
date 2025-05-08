@@ -1,10 +1,20 @@
 package com.lldprojects.splitwise.commands;
 
 import com.lldprojects.splitwise.Dtos.RegisterUserRequestDto;
+import com.lldprojects.splitwise.Dtos.RegisterUserResponseDto;
 import com.lldprojects.splitwise.constants.CommandRegistryConstant;
-import com.lldprojects.splitwise.models.Expense;
+import com.lldprojects.splitwise.controllers.UserController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-public class RegisterCommand implements Command{
+import java.sql.SQLOutput;
+
+@Service
+public class RegisterUserCommand implements Command{
+
+    @Autowired
+    UserController userController;
+
     @Override
     public boolean parseCommand(String command) {
         String[] tokens = command.trim().split("\\s+");
@@ -27,6 +37,7 @@ public class RegisterCommand implements Command{
         registerUserRequestDto.setPhoneNumber(phoneNumber);
         registerUserRequestDto.setPassword(password);
 
-
+        RegisterUserResponseDto response = userController.registerUserController(registerUserRequestDto);
+        System.out.println("Registered User " + response.getUser());
     }
 }

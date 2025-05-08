@@ -1,8 +1,10 @@
 package com.lldprojects.splitwise.commands;
 
 import com.lldprojects.splitwise.constants.CommandRegistryConstant;
+import org.springframework.stereotype.Service;
 
-public class UpdateProfileCommand implements Command{
+@Service
+public class UpdateUserCommand implements Command{
     @Override
     public boolean parseCommand(String command) {
         String[] tokens = command.trim().split("\\s+");

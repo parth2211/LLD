@@ -7,7 +7,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Currency {
+public class Currency extends ModelID{
     private String symbol;
 
     private String name;

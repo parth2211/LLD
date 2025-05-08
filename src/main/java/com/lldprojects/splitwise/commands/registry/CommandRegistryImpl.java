@@ -1,10 +1,12 @@
 package com.lldprojects.splitwise.commands.registry;
 
 import com.lldprojects.splitwise.commands.Command;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class CommandRegistryImpl implements CommandRegistry{
 
     List<Command> commandList = new ArrayList<>();
@@ -34,6 +36,7 @@ public class CommandRegistryImpl implements CommandRegistry{
         for(Command command : commandList) {
             if(command.parseCommand(commandString)) {
                 command.executeCommand(commandString);
+                return;
             }
         }
     }

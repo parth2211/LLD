@@ -12,6 +12,11 @@ public class UserService {
     UserRepository userRepository;
 
     public User registerUserService(String username, String phoneNo, String password){
+        User user = new User();
+        user.setUsername(username);
+        user.setPhoneNo(phoneNo);
+        user.setPassword(password);
 
+        return userRepository.save(user);
     }
 }
