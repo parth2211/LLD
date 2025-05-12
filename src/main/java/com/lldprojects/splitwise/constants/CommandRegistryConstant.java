@@ -6,4 +6,6 @@ public class CommandRegistryConstant {
     public static final String UPDATE_USER = "UpdateProfile";
 
     public static final String ADD_GROUP = "AddGroup";
+
+    public static final String ADD_MEMBER_IN_GROUP = "AddMember";
 }

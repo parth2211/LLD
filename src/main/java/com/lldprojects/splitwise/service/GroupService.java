@@ -39,4 +39,36 @@ public class GroupService {
         System.out.println("User is not registered in system!");
         return null;
     }
+
+    public Group addGroupMember(Long groupAdminId, Long groupId, Long userId) {
+        List<User> userList = userRepository.findAllById(List.of(groupAdminId, userId));
+        Optional<Group> optionalGroup = groupRepository.findById(groupId);
+        if(userList.size() == 2 && optionalGroup.isPresent()) {
+            boolean isAdmin = optionalGroup.get().getAdmins()
+                    .stream()
+                    .anyMatch(admin -> admin.getId() == groupAdminId);
+
+            if(!isAdmin) {
+                System.out.println("Admin permission required to add user in group!");
+                return null;
+            }
+
+            Group group = optionalGroup.get();
+            if(userList.get(0).getId() == userId) {
+                User user = userList.get(0);
+                List<User> participants = group.getGroupParticipants();
+                participants.add(user);
+                group.setGroupParticipants(participants);
+            } else {
+                User user = userList.get(1);
+                List<User> participants = group.getGroupParticipants();
+                participants.add(user);
+                group.setGroupParticipants(participants);
+            }
+
+            return groupRepository.save(group);
+        }
+        System.out.println("Either Users are not registered in system! or Group is not registered in system!");
+        return null;
+    }
 }

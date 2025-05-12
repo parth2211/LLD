@@ -1,5 +1,7 @@
 package com.lldprojects.splitwise.controllers;
 
+import com.lldprojects.splitwise.Dtos.AddGroupMemberRequestDto;
+import com.lldprojects.splitwise.Dtos.AddGroupMemberResponseDto;
 import com.lldprojects.splitwise.Dtos.AddGroupRequestDto;
 import com.lldprojects.splitwise.Dtos.AddGroupResponseDto;
 import com.lldprojects.splitwise.models.Group;
@@ -21,6 +23,18 @@ public class GroupController {
         Group group = groupService.addGroup(createdById, groupName);
 
         AddGroupResponseDto responseDto = new AddGroupResponseDto();
+        responseDto.setGroup(group);
+        return responseDto;
+    }
+
+    public AddGroupMemberResponseDto addGroupMember(AddGroupMemberRequestDto requestDto) {
+        Long groupAdminId = requestDto.getGroupAdminId();
+        Long groupId = requestDto.getGroupId();
+        Long userId = requestDto.getUserId();
+
+        Group group = groupService.addGroupMember(groupAdminId, groupId, userId);
+
+        AddGroupMemberResponseDto responseDto = new AddGroupMemberResponseDto();
         responseDto.setGroup(group);
         return responseDto;
     }
